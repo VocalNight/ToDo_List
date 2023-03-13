@@ -24,9 +24,11 @@
             </div>
             <div class="projects">
                 <p><h3>Projects</h3></p>
-                <ul>
-                    <li><button>+ Add Project</button></li>
+                <ul id="projectList">
+                   
                 </ul>
+
+                <button id="addStuff">+ </button>
             </div>
 
         </div>
@@ -38,7 +40,47 @@
 
         </div>
 
+        <div id="formPopup">
+            <div id="popupTitle">
+                <h2>Add Note/Project</h2>
+                <button id="formCancel"></button>
+            </div>
+            <div id="popupBody">
+                <div id="noteProjectSelection">
+                    <ul>
+                        <li ><button id="selectnoteform">Add note</button></li>
+                        <li ><button id="selectprojectform">Add project</button></li>
+                    </ul>
+
+                </div>
+
+                <div id="noteAddition">
+                    <form action="" class="forms">
+                        <input type="text" id="notetitle" name="notetitle" required>
+                        <textarea name="description" id="description" cols="30" rows="10" required></textarea>
+
+                        <select name="urgency" id="urgency">
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                        <button id="submitNote">Create Note</button>
+                    </form>
+                </div>
+                <div id="projectAddition">
+                    <form action="" class="forms">
+                        <input type="text" id="projecttitle" name="projecttitle" required>
+                        <button type="button" id="submitProject">Create Project</button>
+                    </form>
+
+
+                </div>
+            </div>
+            
+        </div>
+
     </div>
+    
 </div>
     
 </body>

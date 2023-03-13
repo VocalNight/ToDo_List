@@ -1,8 +1,9 @@
 const Project = (projectName) => {
     let notes = [];
+    let name = projectName;
 
     const getNotes = () => notes;
-    const getProjectName = () => projectName;
+    const getProjectName = () => name;
 
     const addNotes = (note) => {
         notes.push(note);
@@ -26,8 +27,10 @@ const Projects = () => {
 
 
     const getCustom = (projectName) => {
-        return custom.find(projectName);
+        return custom.find(project => project.getProjectName() === projectName);
     }
+
+    const getProjects = () => custom;
 
     const addCustomProject = (project) => {
         custom.push(project);
@@ -46,7 +49,7 @@ const Projects = () => {
     }
 
     return {
-        getCustom, getIndex, getToday, getWeek, addCustomProject, addIndex, addToday, addWeek
+        getCustom, getIndex, getToday, getWeek, addCustomProject, addIndex, addToday, addWeek, getProjects
     }
 }
 

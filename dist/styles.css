@@ -6,3 +6,38 @@
 #content {
     display: flex;
 }
+
+div {
+    border: solid 1px blue;
+}
+
+#formPopup {
+    display: none;
+    background-color: black;
+    height: 600px;
+    width: 900px;
+
+    flex-direction: column;
+
+}
+
+/*Forms */
+
+#projectAddition {
+    display: none;
+}
+
+#popupTitle {
+    display: grid;
+    grid-template-columns: 90% 10%;
+}
+
+#popupBody {
+    display: grid;
+    grid-template-columns: 20% 80%;
+}
+
+.forms {
+    display: flex;
+    flex-direction: column;
+}
