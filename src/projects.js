@@ -5,20 +5,20 @@ const Project = (projectName) => {
     const getNotes = () => notes;
     const getProjectName = () => name;
 
-    const addNotes = (note) => {
+    const addNote = (note) => {
         notes.push(note);
     }
 
     return {
-        getNotes, addNotes, getProjectName
+        getNotes, addNote, getProjectName
     }
 }
 
 
 const Projects = () => {
-    let index = [];
-    let today = [];
-    let week = [];
+    let index = Project('index');
+    let today = Project('today');
+    let week = Project('week');
     let custom = [];
 
     const getIndex = () => index;
@@ -37,15 +37,15 @@ const Projects = () => {
     }
 
     const addIndex = (note) => {
-        index.push(note);
+        index.addNote(note);
     }
 
     const addToday = (note) => {
-        today.push(note);
+        today.addNote(note);
     }
 
     const addWeek = (note) => {
-        week.push(note);
+        week.addNote(note);
     }
 
     return {

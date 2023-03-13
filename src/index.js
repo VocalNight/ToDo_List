@@ -24,7 +24,7 @@ weekBtn.addEventListener('click', () => showNotes(projects.getWeek()));
 
 const formPopup = document.querySelector('#formPopup');
 
-const submitNoteBtn = document.querySelector('#submitNote');
+
 
 const submitProjectBtn = document.querySelector('#submitProject');
 
@@ -50,6 +50,13 @@ addProjectBtn.addEventListener('click', () => showForm());
 
 submitProjectBtn.addEventListener('click', () => createProject())
 
+//Notes form buttons
+
+const submitNoteBtn = document.querySelector('#submitNote');
+
+submitNoteBtn.addEventListener('click', () => addNote());
+
+
 //Testing creation of note
 
 projects.addToday(notes('a', 'b', 'c'))
@@ -72,9 +79,11 @@ projects.addIndex(notes('x', 'b', 'c'))
 
 
 // Showing the notes on screen
-function showNotes(notes){
+function showNotes(project){
     let items = document.querySelector('.notesList');
     items.innerHTML = '';
+
+    let notes = project.getNotes();
 
     for (let i = 0; i < notes.length; i++ ) {
         let item = document.createElement("li");
@@ -83,6 +92,8 @@ function showNotes(notes){
         item.style.cursor = "pointer"
         items.appendChild(item);
     }
+
+    currentProject = project;
 
 }
 
@@ -101,8 +112,6 @@ function showCustomNotes(project) {
     }
 
     currentProject = project;
-    console.log(currentProject.getProjectName());
-
 }
 
 function showForm() {
@@ -160,7 +169,18 @@ function showProjects() {
         item.style.cursor = "pointer"
         items.appendChild(item);
     }
+}
 
 
+function addNote(project) {
+    let noteTitle = document.querySelector('#notetitle');
+
+    let noteDescription = document.querySelector('#description');
+
+    let noteUrgency = document.querySelector('#urgency');
+
+    let note = notes(noteTitle.value, noteDescription.value, noteUrgency.value)
+
+    currentProject.addNote(note);
 
 }
